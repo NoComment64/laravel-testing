@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/one', function () {
+    return view('welcome');
+});
+
 Route::post('/', function (Request $request) {
     if ($request->isJson()) {
         return $request->input('name');
