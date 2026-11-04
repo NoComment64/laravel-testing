@@ -1,26 +1,14 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ config('app.name', 'Laravel') }}</title>
+</head>
 
-namespace App\View\Components;
+<body style="background-color: #f0f0f0; font-family: Arial, sans-serif; margin: 5px; padding: 0;">
+    <h1>Working with Components</h1>
 
-use Closure;
-use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
+    <p>Product</p>
 
-class BackgroundLayout extends Component
-{
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
-    {
-        return view('components.background-layout');
-    }
-}
+    {{ $slot }}
+</body>
+</html>
