@@ -1,5 +1,21 @@
 <div>
-    <form method="POST" action="{{ route('product.store') }}">
+    <form method="POST" action="{{ Route::is('product.create') ? route('product.store') : route('product.update', $product->id) }}">
+        @csrf
+        
+    @if(Route::is('product.edit'))
+        @method('PUT')
+    @endif
+    
+    @if ($errors->any())
+        <div class="bg-red-600 border-solid rounded-md border-2 border-red-700">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="text-lg text-gray-100">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
         <div class="p-2 m-2 rounded-lg border-2 border-blue-900 max-w-md">
             <div class="text-sm">
         <input name="title" type="text" placeholder="title" value="{{$product->title}}" />            </div>
