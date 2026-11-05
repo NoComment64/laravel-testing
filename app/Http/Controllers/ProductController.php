@@ -30,7 +30,11 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        return "POST request received and processed successfully"; 
+        $data = $request->except('_token');
+
+        $data['price'] = (int) round((float) $request->price * 100);
+
+        Product::create($data);
     }
 
     /**
