@@ -34,7 +34,9 @@ class ProductController extends Controller
 
         $data['price'] = (int) round((float) $request->price * 100);
 
-        Product::create($data);
+        $product = Product::create($data);
+
+        return redirect()->route('product.show', ['id' => $product->id]);
     }
 
     /**

@@ -32,8 +32,9 @@ Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/create', [ProductController::class, 'create'])
     ->name('product.create');
 
-Route::get('/product/{id}', [ProductController::class, 'show']);
-
+Route::get('/product/{id}', [ProductController::class, 'show'])
+    ->name('product.show');
+    
 Route::get('/product/{id}/edit', [ProductController::class, 'edit'])
     ->name('product.edit');
 
